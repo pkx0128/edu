@@ -5,6 +5,10 @@
         public function login(){
             return $this-> fetch();
         }
+
+        public function checkLogin(){
+            return 'checklogin';
+        }
     }
 
 ?>
