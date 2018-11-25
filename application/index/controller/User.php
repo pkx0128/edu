@@ -2,12 +2,13 @@
     namespace app\index\controller;
     use think\Request;
     use app\index\model\User as UserModel;
+    use think\Session;
     class User extends Base
     {
         public function login(){
             return $this-> fetch();
         }
-
+        //登录验证
         public function checkLogin(Request $request){
             $status = 0;
             $resault = '';
@@ -44,10 +45,18 @@
                 }else{
                     $status = 1;
                     $resault='验证成功';
+                    Session::set('user_id',$rel->id);
+                    Session::set('user_info',$rel->getData());
                 }
         }
             return['status'=>$status,'message'=>$resault,'data'=>$data];
             
+        }
+        //注销登录
+        public function loginout(){
+            Session::delete('user_id');
+            Session::delete('user_info');
+            $this->success('注销成功,正在返回','index/user/login');
         }
     }
 
