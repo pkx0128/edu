@@ -41,7 +41,7 @@
 			</div>
 			<div class="row cl">
 				<div class="formControls col-xs-8 col-xs-offset-3">
-					<input name='verify' class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
+					<input name='verify' class="input-text size-L" type="text" placeholder="" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
 					<img id='verify' src="{:captcha_src();}">
 					<a id="kanbuq" href="javascript:refrechVerfy()">看不清，换一张</a>
 				</div>
@@ -75,8 +75,15 @@
 				url:"{:url('checkLogin')}",
 				data:$('form').serialize(),
 				dataType:'json',
-				success:function(){
-
+				success:function(data){
+					// alert(data.status);
+					if(data.status == 1){
+						alert(data.message);
+						window.location.href = "{:url('index/index')}";
+					}else{
+						alert(data.message);
+						window.location.href="{:url('user/login')}";
+					}
 				}
 			});
 		})
