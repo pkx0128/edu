@@ -6,6 +6,7 @@
     class User extends Base
     {
         public function login(){
+            $this->alreadyLogin();
             return $this-> fetch();
         }
         //登录验证
