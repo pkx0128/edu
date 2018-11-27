@@ -19,8 +19,8 @@
 			<p class="f-20 text-success">欢迎使用H-ui.admin
 				<span class="f-14">v2.3</span>
 				后台模版！</p>
-			<p>登录次数：18 </p>
-			<p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
+			<p>登录次数：{$Think.session.user_info.login_count} </p>
+			<p>上次登录IP：{$Request.ip}  上次登录时间：{:Date('Y-m-d H:i:s',$Think.session.user_info.Login_time)}</p>
 
 			<table class="table table-border table-bordered table-bg mt-20">
 				<thead>
@@ -31,41 +31,41 @@
 				<tbody>
 					<tr>
 						<th width="30%">服务器计算机名</th>
-						<td><span id="lbServerName">http://127.0.0.1/</span></td>
+						<td><span id="lbServerName">{$Request.host}</span></td>
 			</tr>
 					<tr>
 						<td>服务器IP地址</td>
-						<td>192.168.1.1</td>
+						<td>{$Request.ip}</td>
 			</tr>
 					<tr>
 						<td>服务器域名</td>
-						<td>www.h-ui.net</td>
+						<td>{$Request.domain}</td>
 			</tr>
 					<tr>
 						<td>服务器端口 </td>
-						<td>80</td>
+						<td>{$Request.port}</td>
 			</tr>
 					<tr>
-						<td>服务器IIS版本 </td>
-						<td>Microsoft-IIS/6.0</td>
+						<td>PHP版本 </td>
+						<td>{$Think.const.PHP_VERSION}</td>
 			</tr>
 					<tr>
-						<td>本文件所在文件夹 </td>
-						<td>D:\WebSite\HanXiPuTai.com\XinYiCMS.Web\</td>
+						<td>服务器版本 </td>
+						<td>{$Think.const.PHP_OS}</td>
 			</tr>
 					<tr>
-						<td>服务器操作系统 </td>
-						<td>Microsoft Windows NT 5.2.3790 Service Pack 2</td>
+						<td>当前请求URL </td>
+						<td>{$Request.url.true}</td>
 			</tr>
 					<tr>
-						<td>系统所在文件夹 </td>
-						<td>C:\WINDOWS\system32</td>
+						<td>当前SESSION数量 </td>
+						<td>{:count($_SESSION)}</td>
 			</tr>
 					<tr>
-						<td>服务器脚本超时时间 </td>
-						<td>30000秒</td>
+						<td>当前SESSION的ID </td>
+						<td>{:session_id()}</td>
 			</tr>
-					<tr>
+					<!-- <tr>
 						<td>服务器的语言种类 </td>
 						<td>Chinese (People's Republic of China)</td>
 			</tr>
@@ -120,13 +120,13 @@
 					<tr>
 						<td>当前系统用户名 </td>
 						<td>NETWORK SERVICE</td>
-			</tr>
+			</tr> -->
 		</tbody>
 	</table>
 </article>
-		<footer class="footer">
+		<!-- <footer class="footer">
 			<p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br> Copyright &copy;2015 H-ui.admin v3.0 All Rights Reserved.<br> 本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
-</footer>
+</footer> -->
 </div>
 </section>
 {/block}
