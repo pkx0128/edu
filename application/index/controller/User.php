@@ -53,7 +53,7 @@
             return['status'=>$status,'message'=>$resault,'data'=>$data];
             
         }
-        
+
         //注销登录
         public function loginout(){
             Session::delete('user_id');
@@ -86,7 +86,7 @@
             $this->assign('title','编辑管理员信息');
             $this->assign('keywords','编辑管理员信息');
             $this->assign('dsc','编辑管理员信息');
-            return $this->fetch('admin_add');
+            return $this->fetch('admin_edit');
         }
     }
 
