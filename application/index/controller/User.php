@@ -59,8 +59,22 @@
             Session::delete('user_info');
             $this->success('注销成功,正在返回','index/user/login');
         }
-
+        // 管理员列表
         public function adminList(){
+            $this->assign('title','管理员列表');
+            $this->assign('keywords','管理员列表');
+            $this->assign('des','管理员列表');
+            // 获取数据库中所有数据的数量
+            $this->view->count = UserModel::count();
+            // 获取当前登录的用户名
+            $loginName = Session::get('user_info.name');
+            // 如果当前用户为admin返回所有管理员信息,否则只返回当前用户信息
+            if($loginName=='admin'){
+                $list = UserModel::all();
+            }else{
+                $list = UserModel::get($loginName);
+            }
+            $this->assign('list',$list);
             return $this->fetch('admin_list');
         }
     }
