@@ -59,6 +59,10 @@
             Session::delete('user_info');
             $this->success('注销成功,正在返回','index/user/login');
         }
+
+        public function adminList(){
+            return $this->fetch('admin_list');
+        }
     }
 
 ?>
