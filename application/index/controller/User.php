@@ -73,7 +73,7 @@
                 $list = UserModel::all();
             }else{
                 $list = UserModel::all(['name'=>$loginName]); 
-                dump($list);
+                // dump($list);
             }
             $this->assign('list',$list);
             return $this->fetch('admin_list');
