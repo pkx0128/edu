@@ -53,12 +53,14 @@
             return['status'=>$status,'message'=>$resault,'data'=>$data];
             
         }
+        
         //注销登录
         public function loginout(){
             Session::delete('user_id');
             Session::delete('user_info');
             $this->success('注销成功,正在返回','index/user/login');
         }
+
         // 管理员列表
         public function adminList(){
             $this->assign('title','管理员列表');
@@ -77,6 +79,14 @@
             }
             $this->assign('list',$list);
             return $this->fetch('admin_list');
+        }
+
+        // 管理员信息编辑
+        public function adminEdit(){
+            $this->assign('title','编辑管理员信息');
+            $this->assign('keywords','编辑管理员信息');
+            $this->assign('dsc','编辑管理员信息');
+            return $this->fetch('admin_add');
         }
     }
 
