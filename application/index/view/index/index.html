@@ -1,9 +1,9 @@
 ﻿
 {extend name='public/base'}
 {block name='seo'}
-<title>{$title|default='页面标题'}</title>
-<meta name="keywords" content="{$keywords|default='关键字'}">
-<meta name="description" content="{$des|default='网站描述'}">
+
+<!-- 引入tdk信息 -->
+{include file='public/tdk'}
 </head>
 <body>
 {/block}
