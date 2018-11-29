@@ -72,7 +72,8 @@
             if($loginName=='admin'){
                 $list = UserModel::all();
             }else{
-                $list = UserModel::get($loginName);
+                $list = UserModel::all(['name'=>$loginName]); 
+                dump($list);
             }
             $this->assign('list',$list);
             return $this->fetch('admin_list');
