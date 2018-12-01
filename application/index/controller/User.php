@@ -88,6 +88,17 @@
             $this->assign('dsc','编辑管理员信息');
             return $this->fetch('admin_edit');
         }
+
+        //设置管理员状态
+        public function setStatus(Request $request){
+            $user_id = $request->param('id');
+            $rel = UserModel::get($user_id);
+            if($rel->getData('status') == 1){
+                UserModel::update(['status'=>0],['id'=>$user_id]);
+            }else{
+                UserModel::update(['status'=>1],['id'=>$user_id]);
+            }
+        }
     }
 
 ?>
