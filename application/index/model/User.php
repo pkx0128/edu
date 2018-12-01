@@ -12,5 +12,13 @@
             ];
             return $status[$value];
       }
+
+      protected function getRoleAttr($value){
+            $role=[
+                0=>'管理员',
+                1=>'超级管理员'
+            ];
+            return $role[$value];
+      }
     }
 ?>

@@ -53,7 +53,7 @@
 						<td>{$vo.name}</td>
 						<td>{$vo.email}</td>
 						<td>{$vo.login_count}</td>
-						<td>超级管理员</td>
+						<td>{$vo.role}</td>
 						<td>{:date('Y-m-d H:i:s',$vo.login_time)}</td>
 						<td class="td-status">
 							{if condition="$vo.status eq '已启用'"}
