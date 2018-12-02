@@ -82,10 +82,14 @@
         }
 
         // 管理员信息编辑
-        public function adminEdit(){
+        public function adminEdit(Request $request){
+            $user_id = $request->param('id');
+            // print_r($user_id);
+            $rel = UserModel::get($user_id);
             $this->assign('title','编辑管理员信息');
             $this->assign('keywords','编辑管理员信息');
             $this->assign('dsc','编辑管理员信息');
+            $this->assign('user_info',$rel->getData());
             return $this->fetch('admin_edit');
         }
 

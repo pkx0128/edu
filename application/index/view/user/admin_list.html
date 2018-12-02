@@ -70,11 +70,11 @@
 								{else/}
 								<a style="text-decoration:none" onClick="admin_start(this,'{$vo.id}')" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe615;</i></a>
 								{/if}
-								<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url(\'user/adminEdit\')}','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
+								<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url(\'user/adminEdit\',[\'id\'=>$vo[\'id\']])}','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
 								<a title="删除" href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-							
+							{else}
+								<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url(\'user/adminEdit\',[\'id\'=>$vo[\'id\']])}','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
 								{/eq}
-							<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url(\'user/adminEdit\')}','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
 					</tr>
 					{/volist}
 				</tbody>
